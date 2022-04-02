@@ -1,0 +1,87 @@
+﻿<Window x:Class="CarRental.AppWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental"
+        mc:Ignorable="d"
+        Title="CarRental"
+        MinHeight="400" MinWidth="650"
+        WindowState="Maximized">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.1,0" EndPoint="4,1">
+                <GradientStop Color="#100E17" Offset="0"/>
+                <GradientStop Color="#00d4ff" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
+        <Border BorderBrush="#00d4ff" CornerRadius="2,2,2,2" BorderThickness="2,2,2,2" Margin="5,5,5,5" Width="300" HorizontalAlignment="Left">
+            <StackPanel Name="menugrid">
+            <Image Source="Images/user.jpg" Margin="10,10,10,10">
+            </Image>
+                <TextBlock Name="usertxtb" Foreground="white">
+                <Run Text="{Binding FirstName}"/>
+                </TextBlock>
+                <Button x:Name="carsbutton" BorderBrush="Transparent" Foreground="White" Background="#30566b" Content="Cars" Height="50" Margin="10,10,10,10" Click="cb_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="historybutton" BorderBrush="Transparent" Foreground="White" Background="#30566b" Content="History" Height="50" Margin="10,10,10,10" Click="hb_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="aboutbutton" BorderBrush="Transparent" Foreground="White" Background="#30566b" Content="About" Height="50" Margin="10,10,10,10" Click="ab_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+        </StackPanel>
+        </Border>
+        <Border BorderBrush="#00d4ff" CornerRadius="2,2,2,2" BorderThickness="2,2,2,2" Margin="300,5,5,5" HorizontalAlignment="Left">
+            <Grid Name="contentgrid" Margin="190,0,0,0" Width="1000">
+                <Grid Name="carscontent" Visibility="hidden">
+                    <Grid>
+                        <DockPanel>
+                            <DataGrid x:Name="myDataGrid" x:FieldModifier="private" AutoGenerateColumns="false" ColumnWidth="*" IsReadOnly="True"  Background="#100E17" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Brand" Binding="{Binding Brand}" />
+                                <DataGridTextColumn Header="Model" Binding="{Binding Model}" />
+                                <DataGridTextColumn Header="P Year" Binding="{Binding ProductionYear}" />
+                                <DataGridTextColumn Header="Capacity" Binding="{Binding Capacity}" />
+                                <DataGridTextColumn Header="HP" Binding="{Binding HorsePower}" />
+                                <DataGridTextColumn Header="Color" Binding="{Binding Color}" />
+                                <DataGridTextColumn Header="Doors" Binding="{Binding Doors}" />
+                                <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                                <DataGridTextColumn Header="Prize" Binding="{Binding Prize}" />
+                                <DataGridTextColumn Header="Availability" Binding="{Binding Availability}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        </DockPanel>
+                    </Grid>
+                    <Grid>
+
+                    </Grid>
+
+                </Grid>
+                <Grid Name="historycontent" Visibility="hidden">
+                    
+                </Grid>
+                <Grid Name="aboutcontent" Visibility="hidden">
+                    <Label Foreground="white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</Label>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
+    
