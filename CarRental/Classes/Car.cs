@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.ObjectModel;
+using System.Windows.Media;
+
 
 namespace CarRental
 {
@@ -32,6 +34,11 @@ namespace CarRental
         public decimal Prize { get; set; }
 
         public bool Availability { get; set; }
+
+        public int Odometer { get; set; }
+
+        public Uri Uri { get; set; }
+
 
     }
 }

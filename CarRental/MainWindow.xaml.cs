@@ -26,8 +26,7 @@ namespace CarRental
             InitializeComponent();
         }
 
-        public int xd = 4;
-
+        
 
         public void Loging()
         {
@@ -39,30 +38,27 @@ namespace CarRental
             {
                 bool userFound = context.Users.Any(user => user.Email == log && user.Password == pass);
 
-                                
-
 
                 if(userFound)
                 {
                     
                     User user = context.Users.FirstOrDefault(u => u.Email == log);
+                    User loggedUser = new User();
+                    loggedUser.FirstName = user.FirstName;
+                    loggedUser.LastName = user.LastName;
+                    loggedUser.Password = user.Password;
+                    loggedUser.Email = user.Email;
+                    loggedUser.BirthDate = user.BirthDate;
+                    loggedUser.BonusPoints = user.BonusPoints;
 
-                    context.loggedUser.FirstName = user.FirstName;
-                    context.loggedUser.LastName = user.LastName;
-                    context.loggedUser.Password = user.Password;
-                    context.loggedUser.Email = user.Email;
-                    context.loggedUser.BirthDate = user.BirthDate;
-                    context.loggedUser.BonusPoints = user.BonusPoints;
-                    context.SaveChanges();
-
-                    AppWindow app = new AppWindow();
-
+                    AppWindow app = new AppWindow(loggedUser);
                     app.Show();
+                    Close();
                 }
 
                 else
                 {
-                    MessageBox.Show("User Not Found");
+                    badLogintxtb.Visibility = Visibility.Visible;
                 }
             }
 
@@ -70,30 +66,28 @@ namespace CarRental
 
        
 
-        public void Adding()
+        public void AddingUser()
         {
 
             using (DataContext context = new DataContext())
             {
-                var log = emailtxtb.Text;
-
-                bool userFound = context.Users.Any(user => user.Email == log);
-                if (userFound)
-                {
+                if (context.Users.Any(user => user.Email == emailtxtbr.Text))
+                { 
+                
                     MessageBox.Show("Podana nazwa uzytkownika jest zajeta");
                 }
                 else
                 {
-                    if (emailtxtb.Text != null && passwordtxtb.Password != null && firstnametxtb.Text != null && lastnametxtb.Text != null && birthdatepicker.SelectedDate != null)
+                    if (emailtxtbr.Text != null && passwordtxtbr.Password != null && firstnametxtb.Text != null && lastnametxtb.Text != null && birthdatepicker.SelectedDate != null)
                     {
 
                         User newuser = new User();
-                        newuser.Email = emailtxtb.Text;
-                        newuser.Password = passwordtxtb.Password;
+                        newuser.Email = emailtxtbr.Text;
+                        newuser.Password = passwordtxtbr.Password;
                         newuser.FirstName = firstnametxtb.Text;
                         newuser.LastName = lastnametxtb.Text;
                         newuser.BirthDate = birthdatepicker.SelectedDate;
-
+                            
                         context.Add(newuser);
                         context.SaveChanges();
                         MessageBox.Show("Dodano uzytkownika");
@@ -121,7 +115,7 @@ namespace CarRental
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-            Adding();
+            AddingUser();
         }
 
         private void Registration_Click(object sender, RoutedEventArgs e)

@@ -9,15 +9,20 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace CarRental
 {
-    /// <summary>
-    /// Logika interakcji dla klasy App.xaml
-    /// </summary>
+
+
     public partial class App : Application
     {
+
+
         protected override void OnStartup(StartupEventArgs e)
         {
             DatabaseFacade facade = new DatabaseFacade(new DataContext());
             facade.EnsureCreated();
+
+
+
+            
         }
     }
 }
