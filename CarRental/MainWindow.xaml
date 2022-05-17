@@ -27,22 +27,17 @@
                 <StackPanel Margin="10,40,20.4,40" Name="Logingpanel" Visibility="Visible">
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label x:Name="emaillbl" Content="Email" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="60"/>
-                        <TextBox x:Name="emailtxtb" Background="#020024" Foreground="White" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="194" MaxLength="20"/>
+                        <TextBox x:Name="emailtxtb" MaxLength="25" Background="#020024" Foreground="White" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="194"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Name="passwordlbl" Content="Password" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="60"/>
-                        <PasswordBox Name="passwordtxtb" Background="#020024" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="194" MaxLength="20"/>
+                        <PasswordBox Name="passwordtxtb" Background="#020024" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="194" MaxLength="25"/>
                     </StackPanel>
+                    <TextBlock Name="badLogintxtb" HorizontalAlignment="Center" Foreground="Red" Visibility="Hidden">Wrong Email or Password !</TextBlock>
                     <Button Name="loginbt" BorderBrush="Transparent" Foreground="White" Background="#100E17"  Content="Login" HorizontalAlignment="Center" Margin="20,10,20,0" VerticalAlignment="Top" Width="100" Height="40" Click="Login_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="green"/>
-                                        <Setter Property="BorderBrush" Value="Transparent"/>
-                                    </Trigger>
-                                </Style.Triggers>
                             </Style>
                         </Button.Resources>
                     </Button>
@@ -63,24 +58,24 @@
                 <StackPanel Margin="10,10,4,15" Name="registrationpanel" Visibility="Collapsed">
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label x:Name="emailblr" Content="Email" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="60"/>
-                        <TextBox x:Name="emailtxtbr" Background="#020024" Foreground="White" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="194" MaxLength="20"/>
+                        <TextBox x:Name="emailtxtbr" Background="#020024" Foreground="White" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="194" MaxLength="25"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Name="passwordlblr" Content="Password" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="60"/>
-                        <PasswordBox Name="passwordtxtbr" Background="#020024" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="194" MaxLength="20"/>
+                        <PasswordBox Name="passwordtxtbr" Background="#020024" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="194" MaxLength="25"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Name="firstnamelbl" Content="First Name" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="60"/>
-                        <TextBox Name="firstnametxtb" Background="#020024" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="194" MaxLength="20"/>
+                        <TextBox Name="firstnametxtb" Background="#020024" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="194" MaxLength="25"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Name="lastnamelbl" Content="Last Name" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="60"/>
-                        <TextBox Name="lastnametxtb" Background="#020024" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="194" MaxLength="20"/>
+                        <TextBox Name="lastnametxtb" Background="#020024" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="194" MaxLength="40"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Name="datelbl" Content="Date" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="60"/>
-                        <DatePicker Name="birthdatepicker"  Width="195" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#020024" Foreground="White" />
+                        <DatePicker Name="birthdatepicker"  Width="195" HorizontalAlignment="Center" VerticalAlignment="Top" />
                     </StackPanel>
                     <Button Name="createbtr"  BorderBrush="Transparent" Foreground="White" Background="#100E17" Content="Create Account" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Width="130" Height="40" Click="Create_Click">
                     <Button.Resources>
@@ -102,6 +97,7 @@
             </StackPanel>
             </StackPanel>
         </StackPanel>
+        
     </Grid>
 
 </Window>

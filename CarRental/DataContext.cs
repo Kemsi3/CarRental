@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,6 @@ namespace CarRental
         {
             optionsBuilder.UseSqlServer("server=DESKTOP-BC3PM33\\SQLEXPRESS;database=CarRental;trusted_connection=true");
         }
-
-        public User loggedUser = new User();
 
         public DbSet<User> Users { get; set; }
 

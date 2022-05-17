@@ -176,8 +176,15 @@
     <Compile Include="AppWindow.xaml.cs">
       <DependentUpon>AppWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CarControl.xaml.cs">
+      <DependentUpon>CarControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Rent.cs" />
     <Page Include="AppWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CarControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,7 +235,21 @@
     <Resource Include="Images\obraz-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\user.jpg" />
+    <Resource Include="Images\user.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\dodgechallenger.jpg" />
+    <Resource Include="Images\vwpolo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\info.png" />
+    <Resource Include="Images\lista.png" />
+    <Resource Include="Images\menu.png" />
+    <Resource Include="Images\wozek.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mercbenz.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
